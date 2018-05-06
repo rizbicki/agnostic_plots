@@ -98,6 +98,20 @@ ggplot()+geom_line(data=power.data,aes(x=mu.grid,y=Power),size=2)+
 
 dev.off()
 
+setEPS()
+postscript("t_two_sided_1.eps")
+ggplot()+geom_line(data=probability.decisions,aes(x=mu.grid,y=Probability,linetype=Decision,color=Decision),size=2)+
+  geom_hline(yintercept = 0.05,linetype=2,color="grey20")+xlab(expression(mu))+geom_vline(xintercept = 0)+ylab("Probability of each decision")+
+  geom_hline(yintercept = 0.0)+ylim(c(0,1))
+dev.off()
+
+setEPS()
+postscript("t_two_sided_2.eps")
+ggplot()+geom_line(data=power.data,aes(x=mu.grid,y=Power),size=2)+
+  geom_hline(yintercept = 0.05,linetype=2,color="grey20")+xlab(expression(mu))+
+  geom_vline(xintercept = 0)+ylab(expression(pi(mu)))+
+  geom_hline(yintercept = 0.0)+ylim(c(0,1))
+dev.off()
 
 
 
@@ -161,4 +175,19 @@ ggplot()+geom_line(data=power.data,aes(x=mu.grid,y=Power),size=2)+
   geom_vline(xintercept = 0)+ylab(expression(pi(mu)))+
   geom_hline(yintercept = 0.0)+ylim(c(0,1))
 
+dev.off()
+
+setEPS()
+postscript("t_greater_1.eps")
+ggplot()+geom_line(data=probability.decisions,aes(x=mu.grid,y=Probability,linetype=Decision,color=Decision),size=2)+
+  geom_hline(yintercept = 0.05,linetype=2,color="grey20")+xlab(expression(mu))+geom_vline(xintercept = 0)+ylab("Probability of each decision")+
+  geom_hline(yintercept = 0.0)+ylim(c(0,1))
+dev.off()
+
+setEPS()
+postscript("t_greater_2.eps")
+ggplot()+geom_line(data=power.data,aes(x=mu.grid,y=Power),size=2)+
+  geom_hline(yintercept = 0.05,linetype=2,color="grey20")+xlab(expression(mu))+
+  geom_vline(xintercept = 0)+ylab(expression(pi(mu)))+
+  geom_hline(yintercept = 0.0)+ylim(c(0,1))
 dev.off()

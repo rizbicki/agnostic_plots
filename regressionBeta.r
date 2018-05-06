@@ -129,6 +129,12 @@ xtable::xtable(aux$summary)
 pdf("infant_power.pdf")
 aux=lm.agnostic("Infant.Mortality~.",swiss,d=0.25,beta=0.2,alpha=0.05,plot.power = T)
 dev.off()
+
+setEPS()
+postscript("infant_power.eps")
+aux=lm.agnostic("Infant.Mortality~.",swiss,d=0.25,beta=0.2,alpha=0.05,plot.power = T)
+dev.off()
+
 aux$summary[,1:4]=round(as.numeric(aux$summary[,1:4]),3)
 xtable::xtable(aux$summary)
 
