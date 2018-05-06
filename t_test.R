@@ -64,8 +64,7 @@ decision_plot(prob_decisions)
 ggsave("./figures/t_test_equal_probs.eps", device = "eps")
 
 #Power function
-q = power_plot(prob_decisions, discontinuity = c(0))
-
+power_plot(prob_decisions, discontinuity = c(0))
 ggsave("./figures/t_test_equal_power.eps", device = "eps")
 
 #Simulation of one-sided agnostic t-test

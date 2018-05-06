@@ -40,8 +40,8 @@ power_plot <- function(prob_decisions, discontinuity = c())
     ylab(expression(pi(mu))) +
     geom_hline(yintercept = 0.0) +
     ylim(c(0,1)) +
-    geom_point(aes(x = mu.grid, y = Power), size = 4, data = discontinuous_power) +
-    geom_point(aes(x = mu.grid, y = Power), size = 4, pch = 1 , data = continuous_power)
+    geom_point(aes(x = mu.grid, y = Power), size = 3, data = discontinuous_power) +
+    geom_point(aes(x = mu.grid, y = Power), size = 3, pch = 1 , data = continuous_power)
 }
 
 plot_interval_test <- function(eps = 0.2, fac = 3)
