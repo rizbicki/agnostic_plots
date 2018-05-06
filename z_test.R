@@ -57,10 +57,14 @@ prob_decisions %<>%
 
 #Save results
 #write_rds(prob_decisions, "./data/z_test_lesser.rds")
-#prob_decisions = read_rds("./data/z_test_lesser.rds")
+prob_decisions = read_rds("./data/z_test_lesser.rds")
 
 #Decision probabilities
-decision_plot(prob_decisions, "./figures/one_sample_1.eps")
+decision_plot(prob_decisions)
+ggsave("./figures/z_test_lesser_probs.eps", device = "eps")
+dev.off()
 
 #Power function
-power_plot(prob_decisions, "./figures/one_sample_2.eps")
+power_plot(prob_decisions)
+ggsave("./figures/z_test_lesser_power.eps", device = "eps")
+dev.off()

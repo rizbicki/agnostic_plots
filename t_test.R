@@ -55,15 +55,18 @@ prob_decisions %<>%
   mutate(Power = ifelse(mu.grid == 0, `Accept H0`, `Reject H0`))
 
 #Save results
-write_rds(prob_decisions, "./data/t_test_equal.rds")
+#write_rds(prob_decisions, "./data/t_test_equal.rds")
 prob_decisions = read_rds("./data/t_test_equal.rds")
 
 #Figures
 #Decision probabilities
-decision_plot(prob_decisions, "./figures/t_test_equal_1.eps")
+decision_plot(prob_decisions)
+ggsave("./figures/t_test_equal_probs.eps", device = "eps")
 
 #Power function
-power_plot(prob_decisions, "./figures/t_test_equal_2.eps")
+q = power_plot(prob_decisions, discontinuity = c(0))
+
+ggsave("./figures/t_test_equal_power.eps", device = "eps")
 
 #Simulation of one-sided agnostic t-test
 n = 10
@@ -93,12 +96,16 @@ prob_decisions %<>%
   mutate(Power = ifelse(mu.grid <= 0, `Accept H0`, `Reject H0`))
 
 #Save results
-write_rds(prob_decisions, "./data/t_test_lesser.rds")
+#write_rds(prob_decisions, "./data/t_test_lesser.rds")
 prob_decisions = read_rds("./data/t_test_lesser.rds")
 
 #Figures
 #Decision probabilities
-decision_plot(prob_decisions, "./figures/t_test_lesser_1.eps")
+decision_plot(prob_decisions)
+ggsave("./figures/t_test_lesser_probs.eps", device = "eps")
+dev.off()
 
 #Power function
-power_plot(prob_decisions, "./figures/t_test_lesser_2.eps")
+power_plot(prob_decisions)
+ggsave("./figures/t_test_lesser_power.eps", device = "eps")
+dev.off()
